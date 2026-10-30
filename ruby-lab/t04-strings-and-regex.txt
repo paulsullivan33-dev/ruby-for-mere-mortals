@@ -1,0 +1,15 @@
+Ruby for Mere Mortals -- lab transcript t04-strings-and-regex: ruby strings_demo.rb
+$ ruby strings_demo.rb
+Code: FIC-014
+Title: The Clockwork Orchard
+Author: Ellery
+Label: The Clockwork Orchard at 12.99, 14 on the shelf
+Matched: code=BK-2214 name=Murder at the Millpond price=12.00 qty=11
+Codes in the note: ["BK-2214", "BK-1099", "BK-2214"]
+Quantities found: ["2", "1"]
+Order BK-0000 x2, BK-1099 x1, and BK-2214 again for the window.
+Redacted: Order [code] x2, [code] x1, and [code] again for the window.
+Dashless code matches the strict pattern: false
+Dashless code matches the loose pattern:  true
+Word counts: {"the"=>3, "orchard"=>2, "clockwork"=>1, "keeper"=>1}
+Most common word: the

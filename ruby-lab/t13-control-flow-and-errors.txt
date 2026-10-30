@@ -1,0 +1,33 @@
+Ruby for Mere Mortals -- lab transcript t13: methods, control flow, and two honest errors
+$ ruby control_demo.rb
+sold out
+running low
+plenty
+The Salt Road Atlas x1
+THE SALT ROAD ATLAS X3
+Mystery lives in the corner cabinet
+box 3 shelved
+box 2 shelved
+box 1 shelved
+reorder more bookmarks
+no alarm
+Delivery due: 
+Delivery due: FRIDAY
+
+$ ruby broken_syntax.rb     (an unclosed string, on purpose)
+broken_syntax.rb: --> broken_syntax.rb
+unterminated string meets end of file
+> 2  puts "This string never closes
+broken_syntax.rb:2: unterminated string meets end of file (SyntaxError)
+puts "This string never closes
+                              ^
+
+exit: 1
+
+$ ruby -e "puts [1, 2, 3].lentgh"     (a mistyped method name)
+-e:1:in `<main>': undefined method `lentgh' for [1, 2, 3]:Array (NoMethodError)
+
+puts [1, 2, 3].lentgh
+              ^^^^^^^
+Did you mean?  length
+exit: 1

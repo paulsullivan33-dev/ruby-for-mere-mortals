@@ -1,0 +1,12 @@
+Ruby for Mere Mortals -- lab transcript t09: Minitest, all green
+$ ruby test_bookshop.rb
+Run options: --seed 36864
+
+# Running:
+
+.....
+
+Finished in 0.002472s, 2022.3976 runs/s, 2022.3976 assertions/s.
+
+5 runs, 5 assertions, 0 failures, 0 errors, 0 skips
+exit: 0

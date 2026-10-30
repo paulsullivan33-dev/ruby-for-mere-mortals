@@ -1,0 +1,52 @@
+Ruby for Mere Mortals -- lab transcript t07: installing one gem and using it
+GEM_HOME is the lab's own folder, so nothing touches the system.
+
+$ gem install colorize
+ERROR:  Could not find a valid gem 'colorize' (>= 0), here is why:
+          Unable to download data from https://rubygems.org/ - Net::OpenTimeout: Net::OpenTimeout (https://rubygems.org/specs.4.8.gz)
+
+$ gem list colorize
+
+
+$ ruby paint.rb
+<internal:/home/hatch/workspace/ruby-labwork/extract/usr/lib/ruby/3.2.0/rubygems/core_ext/kernel_require.rb>:86:in `require': cannot load such file -- colorize (LoadError)
+	from <internal:/home/hatch/workspace/ruby-labwork/extract/usr/lib/ruby/3.2.0/rubygems/core_ext/kernel_require.rb>:86:in `require'
+	from paint.rb:2:in `<main>'
+
+$ ruby paint.rb | cat -v   (the same run, escape codes made visible)
+<internal:/home/hatch/workspace/ruby-labwork/extract/usr/lib/ruby/3.2.0/rubygems/core_ext/kernel_require.rb>:86:in `require': cannot load such file -- colorize (LoadError)
+	from <internal:/home/hatch/workspace/ruby-labwork/extract/usr/lib/ruby/3.2.0/rubygems/core_ext/kernel_require.rb>:86:in `require'
+	from paint.rb:2:in `<main>'
+
+--- the same afternoon, diagnosed: the sandbox's web proxy answers
+curl at once, but Ruby's own HTTPS open to rubygems.org times out in
+this environment. The workaround is to fetch the .gem file with
+curl and install it locally. The file's SHA-256 is checked against
+the checksum the rubygems.org API publishes for colorize 1.1.0
+(30b5237f0603f666...), so the local file is provably the real gem.
+
+$ curl -s -o /dev/null -w "%{http_code}\n" https://rubygems.org/
+200
+$ curl -sL -o colorize-1.1.0.gem https://rubygems.org/gems/colorize-1.1.0.gem
+$ sha256sum colorize-1.1.0.gem
+30b5237f0603f6662ab8d1fc2bd4a96142b806c6415d79e45ef5fdc6a0cfc837  colorize-1.1.0.gem
+$ gem install --local colorize-1.1.0.gem
+Successfully installed colorize-1.1.0
+Parsing documentation for colorize-1.1.0
+Installing ri documentation for colorize-1.1.0
+Done installing documentation for colorize after 1 seconds
+1 gem installed
+$ gem list colorize
+colorize (1.1.0)
+
+$ ruby paint.rb
+[1;39;49mThe Dusty Shelf -- morning stock check[0m
+The Clockwork Orchard: [0;32;49m14 in stock[0m
+How Bridges Stand:    [0;31;49monly 4 left[0m
+Stars for Beginners:   [0;32;49m18 in stock[0m
+
+$ ruby paint.rb | cat -v   (escape codes made visible)
+^[[1;39;49mThe Dusty Shelf -- morning stock check^[[0m
+The Clockwork Orchard: ^[[0;32;49m14 in stock^[[0m
+How Bridges Stand:    ^[[0;31;49monly 4 left^[[0m
+Stars for Beginners:   ^[[0;32;49m18 in stock^[[0m

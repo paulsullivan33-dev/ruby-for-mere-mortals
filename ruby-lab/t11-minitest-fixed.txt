@@ -1,0 +1,15 @@
+Ruby for Mere Mortals -- lab transcript t11: the fix, verified
+The expectation is put back to the truth (14 - 2 = 12) -- the code
+was right and the test was wrong, which the failure message showed.
+
+$ ruby test_bookshop.rb
+Run options: --seed 8888
+
+# Running:
+
+.....
+
+Finished in 0.010369s, 482.2069 runs/s, 482.2069 assertions/s.
+
+5 runs, 5 assertions, 0 failures, 0 errors, 0 skips
+exit: 0

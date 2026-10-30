@@ -1,0 +1,48 @@
+Ruby for Mere Mortals -- lab transcript t12: a native-extension gem, compiled
+oj is written partly in C, so installing it runs the compiler.
+Fetched as a .gem file with curl, for the reason t07 gives.
+
+$ gem install --local oj-3.17.7.gem
+Building native extensions. This could take a while...
+ERROR:  Error installing oj-3.17.7.gem:
+	ERROR: Failed to build gem native extension.
+
+    current directory: /home/hatch/workspace/ruby-labwork/gemhome/gems/oj-3.17.7/ext/oj
+/home/hatch/workspace/ruby-labwork/extract/usr/bin/ruby3.2 extconf.rb
+mkmf.rb can't find header files for ruby at /home/hatch/workspace/ruby-labwork/extract/usr/lib/ruby/include/ruby.h
+
+You might have to install separate package for the ruby development
+environment, ruby-dev or ruby-devel for example.
+
+extconf failed, exit code 1
+
+Gem files will remain installed in /home/hatch/workspace/ruby-labwork/gemhome/gems/oj-3.17.7 for inspection.
+Results logged to /home/hatch/workspace/ruby-labwork/gemhome/extensions/x86_64-linux-gnu/3.2.0/oj-3.17.7/gem_make.out
+exit: 1
+
+$ gem list oj
+
+$ ruby oj_demo.rb
+<internal:/home/hatch/workspace/ruby-labwork/extract/usr/lib/ruby/3.2.0/rubygems/core_ext/kernel_require.rb>:86:in `require': cannot load such file -- oj (LoadError)
+	from <internal:/home/hatch/workspace/ruby-labwork/extract/usr/lib/ruby/3.2.0/rubygems/core_ext/kernel_require.rb>:86:in `require'
+	from oj_demo.rb:2:in `<main>'
+
+--- diagnosed: the missing piece was the ruby3.2-dev package
+(headers). On a normal machine: sudo apt install ruby-dev.
+Here the headers were extracted alongside and linked where
+mkmf looks for them. Retrying:
+
+$ gem install --local oj-3.17.7.gem
+Building native extensions. This could take a while...
+Successfully installed oj-3.17.7
+Parsing documentation for oj-3.17.7
+Installing ri documentation for oj-3.17.7
+Done installing documentation for oj after 4 seconds
+1 gem installed
+exit: 0
+
+$ gem list oj
+oj (3.17.7)
+$ ruby oj_demo.rb
+As JSON text: {"title":"The Salt Road Atlas","price":18.75,"stock":9}
+Back again:   The Salt Road Atlas -- 18.75 x 9

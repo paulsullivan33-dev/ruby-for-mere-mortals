@@ -1,0 +1,9 @@
+Ruby for Mere Mortals -- lab transcript t03-classes-and-modules: ruby classes_demo.rb
+$ ruby classes_demo.rb
+The Clockwork Orchard by M. Ellery (Fiction) -- GBP 12.99, 14 in stock
+How Bridges Stand by T. Adeyemi (Science) -- GBP 29.99, 4 in stock
+Stars for Beginners by R. Okafor (Science) -- GBP 17.25, 18 in stock -- signed by the author
+Cheapest first: The Clockwork Orchard | Stars for Beginners | How Bridges Stand
+After selling 2: The Clockwork Orchard by M. Ellery (Fiction) -- GBP 12.99, 12 in stock
+Sale refused, as it should be: not enough stock for How Bridges Stand
+Bad book refused: price cannot be negative

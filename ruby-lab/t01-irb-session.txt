@@ -1,0 +1,45 @@
+Ruby for Mere Mortals -- lab transcript t01: an irb session
+irb was fed the lines below from a file, so there are no prompts;
+each line is followed by the value irb printed for it.
+
+Switch to inspect mode.
+2 + 3
+5
+price = 12.99
+12.99
+stock = 14
+14
+price * stock
+181.86
+"The Clockwork Orchard".upcase
+"THE CLOCKWORK ORCHARD"
+"The Clockwork Orchard".split.size
+3
+[3, 1, 2].sort
+
+[1,
+ 2,
+ 3]
+("A".."E").to_a
+
+["A",
+ "B",
+ "C",
+ "D",
+ "E"]
+:science.class
+Symbol
+42.class
+Integer
+nil.class
+NilClass
+def shelf_value(price, stock) = price * stock
+:shelf_value
+shelf_value(12.99, 14)
+181.86
+3.times { print "ha " }
+ha ha ha 3
+puts
+
+nil
+exit

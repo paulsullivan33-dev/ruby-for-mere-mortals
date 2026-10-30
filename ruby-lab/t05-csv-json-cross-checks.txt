@@ -1,0 +1,39 @@
+Ruby for Mere Mortals -- lab transcript t05: CSV in, JSON out, totals checked twice more
+$ ruby shop_report.rb
+{
+  "shop": "The Dusty Shelf (invented)",
+  "titles": 12,
+  "total_copies": 138,
+  "total_value": 2182.87,
+  "dearest": {
+    "title": "How Bridges Stand",
+    "price": 29.99
+  },
+  "by_genre": {
+    "Fiction": {
+      "titles": 3,
+      "copies": 46
+    },
+    "Science": {
+      "titles": 3,
+      "copies": 29
+    },
+    "Travel": {
+      "titles": 2,
+      "copies": 22
+    },
+    "Mystery": {
+      "titles": 2,
+      "copies": 27
+    },
+    "Cookery": {
+      "titles": 2,
+      "copies": 14
+    }
+  }
+}
+
+$ awk -F, 'NR>1 {c+=$5; v+=$4*$5} END {printf "awk:    copies=%d value=%.2f\n", c, v}' books.csv
+awk:    copies=138 value=2182.87
+$ python3 -c (csv module: sum stock, sum price*stock)
+python: copies=138 value=2182.87

@@ -1,0 +1,51 @@
+Ruby for Mere Mortals -- lab transcript t08: Bundler
+$ cat Gemfile
+# Gemfile -- the shop banner program's one dependency, pinned by Bundler.
+source "https://rubygems.org"
+
+gem "colorize", "~> 1.1"
+
+$ bundle install        (first attempt, stopped after 90 seconds)
+Don't run Bundler as root. Installing your bundle as root will break this
+application for all non-root users on this machine.
+Fetching source index from https://rubygems.org/
+
+Retrying fetcher due to error (2/4): Bundler::HTTPError Could not fetch specs from https://rubygems.org/ due to underlying error <Net::OpenTimeout: Net::OpenTimeout (https://rubygems.org/specs.4.8.gz)>
+exit: 124
+
+Bundler stalls on the same rubygems.org metadata fetch that timed
+out for gem in t07. The offline route: put the verified .gem in
+vendor/cache (that is what 'bundle package' would do) and install
+from there.
+
+$ mkdir -p vendor/cache && cp ../run/colorize-1.1.0.gem vendor/cache/
+$ bundle config set --local path vendor/bundle
+$ bundle install --local
+Don't run Bundler as root. Installing your bundle as root will break this
+application for all non-root users on this machine.
+Resolving dependencies...
+Installing colorize 1.1.0
+Updating files in vendor/cache
+Bundle complete! 1 Gemfile dependency, 2 gems now installed.
+Bundled gems are installed into `./vendor/bundle`
+exit: 0
+
+$ cat Gemfile.lock
+GEM
+  remote: https://rubygems.org/
+  specs:
+    colorize (1.1.0)
+
+PLATFORMS
+  x86_64-linux-gnu
+
+DEPENDENCIES
+  colorize (~> 1.1)
+
+BUNDLED WITH
+   2.4.19
+$ bundle exec ruby paint.rb
+[1;39;49mThe Dusty Shelf -- morning stock check[0m
+The Clockwork Orchard: [0;32;49m14 in stock[0m
+How Bridges Stand:    [0;31;49monly 4 left[0m
+Stars for Beginners:   [0;32;49m18 in stock[0m

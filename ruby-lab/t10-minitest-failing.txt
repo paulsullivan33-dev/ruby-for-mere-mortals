@@ -1,0 +1,20 @@
+Ruby for Mere Mortals -- lab transcript t10: one assertion deliberately wrong
+test_selling_reduces_stock was edited to expect 10 after selling 2
+of 14. The failure below is verbatim -- it is the lesson.
+
+$ ruby test_bookshop_broken.rb
+Run options: --seed 54292
+
+# Running:
+
+.F...
+
+Finished in 0.005609s, 891.4030 runs/s, 891.4030 assertions/s.
+
+  1) Failure:
+TestBook#test_selling_reduces_stock [test_bookshop_broken.rb:17]:
+Expected: 10
+  Actual: 12
+
+5 runs, 5 assertions, 1 failures, 0 errors, 0 skips
+exit: 1

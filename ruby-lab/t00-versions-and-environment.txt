@@ -1,0 +1,18 @@
+Ruby for Mere Mortals -- lab transcript t00: versions and environment
+The lab ran Ubuntu noble's own ruby3.2 packages (3.2.3), extracted
+unmodified into a private folder; commands are shown as typed.
+
+$ ruby --version
+ruby 3.2.3 (2024-01-18 revision 52bb2ac0a6) [x86_64-linux-gnu]
+$ gem --version
+3.4.19
+$ bundle --version
+Bundler version 2.4.19
+$ irb --version
+irb 1.6.2 (2022-12-13)
+$ rake --version
+rake, version 13.0.6
+$ gcc --version | head -1
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+$ gem env home
+/home/hatch/workspace/ruby-labwork/gemhome

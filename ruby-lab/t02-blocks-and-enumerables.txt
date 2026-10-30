@@ -1,0 +1,21 @@
+Ruby for Mere Mortals -- lab transcript t02-blocks-and-enumerables: ruby blocks_demo.rb
+$ ruby blocks_demo.rb
+The Clockwork Orchard -- 14 on the shelf
+A Field Guide to Clouds -- 7 on the shelf
+The Night Train to Bexhill -- 16 on the shelf
+Gardens of Small Hours -- 22 on the shelf
+Stars for Beginners -- 18 on the shelf
+Titles: The Clockwork Orchard | A Field Guide to Clouds | The Night Train to Bexhill | Gardens of Small Hours | Stars for Beginners
+Running low: A Field Guide to Clouds
+Copies in this sample: 77
+Shelf value of this sample: 1127.36
+Fiction: 2 titles
+Science: 2 titles
+Mystery: 1 titles
+Dearest book: A Field Guide to Clouds at 24.5
+Counting the delivery...
+  box 1 of 3 checked
+  box 2 of 3 checked
+  box 3 of 3 checked
+Counted.
+Sale price of the dearest book: 22.05
